@@ -1,0 +1,57 @@
+/* Base Styles */
+
+:root {
+    font-size: 10px;
+}
+
+.container {
+    width: 90%; /* Adapts to screen size */
+    max-width: 1200px; /* Prevents too large on desktops */
+    margin: 0 auto;
+    display: flex;
+    align-items: flex start;
+    justify-content: space-between;
+  }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.circle-img {
+    width: 150px;  
+    height: 150px; 
+    border-radius: 50%; 
+    border: 5px solid #04411b; 
+    object-fit: cover; 
+    
+  }
+  
+  h1{
+    margin-left:auto;
+
+  }
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack elements on mobile */
+  }
+
+  img {
+    width: 100%; /* Full width images on mobile */
+  }
+}
