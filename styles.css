@@ -1,75 +1,146 @@
 /* Base Styles */
-
 :root {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .container {
-    width: 90%; /* Adapts to screen size */
-    max-width: 1200px; /* Prevents too large on desktops */
-    margin: 0 auto;
-    display: flex;
-    align-items: flex start;
-    justify-content: space-between;
-    text-align: right;
-    display: grid;
-    height: 100vh;
-    justify-items: center;
-    gap:20px;
-  }
+  width: 90%; /* Adapts to screen size */
+  max-width: 1200px; /* Prevents too large on desktops */
+  margin: 0 auto;
+  padding: 0;
+  display: block; /* Changed from grid to block to fix vertical spacing */
+}
 
-  .profile-image{
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Reduced space between profile and gallery */
+}
 
-    display: flex;
-    align-items: flex-start; /* Aligns the heading to the top */
-    justify-content: space-between;
-  }
+.profile-image {
+  display: flex;
+  align-items: flex-start; /* Aligns the heading to the top */
+  justify-content: space-between;
+}
 
-  .btn_profile-edit-btn{
-    display: inline-block;
-    align-self: start; /* Align button to the top */
-    margin-top: 14px;
-  }
+.btn_profile-edit-btn {
+  display: inline-block;
+  align-self: start; /* Align button to the top */
+  margin-top: 14px;
+}
+
+.profile-stats {
+  margin-bottom: 15px;
+}
+
+.profile-bio {
+  margin-bottom: 10px;
+}
+
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns like Instagram */
+  grid-template-rows: repeat(4, 1fr); /* Explicitly defines 4 rows */
+  gap: 28px; /* Space between images */
+  margin-top: 0; /* Removes top margin from gallery */
+  padding-top: 0; /* Removes top padding from gallery */
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1/1; /* Square aspect ratio for items */
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintains aspect ratio while filling container */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.gallery-item-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-info {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.03);
+}
+
+/* Global styles */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Open Sans", Arial, sans-serif;
-    min-height: 100vh;
-    background-color: #fafafa;
-    color: #262626;
-    padding-bottom: 3rem;
+  font-family: "Open Sans", Arial, sans-serif;
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: #262626;
+  padding-bottom: 3rem;
+  margin: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .circle-img {
-    width: 150px;  
-    height: 150px; 
-    border-radius: 50%; 
-    border: 5px solid #04411b; 
-    object-fit: cover; 
-    
-  }
-  
-  h1{
-    margin-left:auto;
+  width: 150px;  
+  height: 150px; 
+  border-radius: 50%; 
+  border: 5px solid #04411b; 
+  object-fit: cover; 
+}
 
-  }
+h1 {
+  margin-left: auto;
+}
 
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack elements on mobile */
-  }
+/* Loader styles */
+.loader {
+  width: 5rem;
+  height: 5rem;
+  border: 0.6rem solid #999;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: loader 500ms linear infinite;
+  display: none; /* Hide loader by default */
+}
 
-  img {
-    width: 100%; /* Full width images on mobile */
+/* Responsive styles */
+@media (max-width: 768px) {
+  .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+      grid-template-columns: 1fr;
+      gap: 8px;
   }
 }
