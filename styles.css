@@ -5,7 +5,7 @@
 
 .container {
   width: 90%; /* Adapts to screen size */
-  max-width: 1200px; /* Prevents too large on desktops */
+  max-width: 935px; /* Match Instagram's width */
   margin: 0 auto;
   padding: 0;
   display: block;
@@ -15,14 +15,16 @@
 .profile {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  padding: 20px 0;
+  margin-bottom: 44px; /* Instagram-style spacing */
+  padding: 30px 0;
 }
 
 .profile-image {
   display: flex;
   align-items: center; /* Center items vertically */
+  justify-content: flex-start; /* Align from the left */
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .circle-img {
@@ -99,14 +101,14 @@
   font-weight: bold;
 }
 
-/* Gallery styles */
+/* Gallery styles - aligned with profile */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns like Instagram */
-  grid-template-rows: repeat(4, 1fr); /* Explicitly defines 4 rows */
+  grid-auto-rows: 1fr; /* Auto-sized rows */
   gap: 28px; /* Space between images */
-  margin-top: 0;
-  padding-top: 0;
+  margin: 0 auto; /* Center the gallery */
+  padding: 0;
 }
 
 .gallery-item {
@@ -210,10 +212,15 @@ img {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .container {
+      width: 95%;
+  }
+  
   .profile-image {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      
   }
   
   .circle-img {
@@ -233,6 +240,7 @@ img {
   .profile-user-name {
       margin-right: 0;
       margin-bottom: 15px;
+      
   }
   
   .profile-stats ul {
@@ -255,5 +263,3 @@ img {
       gap: 8px;
   }
 }
-
-
