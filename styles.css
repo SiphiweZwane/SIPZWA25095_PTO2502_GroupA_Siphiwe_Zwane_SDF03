@@ -6,17 +6,17 @@
 .container {
   width: 90%; /* Adapts to screen size */
   max-width: 935px; /* Match Instagram's width */
-  margin: 0 auto;
+  margin: 10px;
   padding: 0;
   display: block;
 }
 
-/* Profile section fixes */
+
 .profile {
   display: flex;
   flex-direction: column;
   margin-bottom: 44px; /* Instagram-style spacing */
-  padding: 30px 0;
+  padding: 30px;
 }
 
 .profile-image {
@@ -39,8 +39,17 @@
 /* Profile user info section */
 .profile-user-info {
   display: flex;
+  display: contents;
   flex-direction: column;
   flex-grow: 1;
+  margin-right: auto;
+  padding-bottom: 10px;
+  
+}
+.profile::after{
+  content:"";
+  display:contents;
+  clear:both;
 }
 
 /* Username and buttons row */
@@ -106,7 +115,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns like Instagram */
   grid-auto-rows: 1fr; /* Auto-sized rows */
-  gap: 28px; /* Space between images */
+  gap: 28px; 
   margin: 0 auto; /* Center the gallery */
   padding: 0;
 }
@@ -220,6 +229,7 @@ img {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-left: auto;
       
   }
   
