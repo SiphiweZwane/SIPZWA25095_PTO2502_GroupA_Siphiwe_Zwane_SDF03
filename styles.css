@@ -123,12 +123,12 @@
 
 .gallery-item {
   position: relative;
-  aspect-ratio: 1/1; /* Square aspect ratio for items */
+  aspect-ratio: 3/5; /* Square aspect ratio for items */
   overflow: hidden;
 }
 
 .gallery-image {
-  width: 100%;
+  width:100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -237,6 +237,7 @@ img {
   .circle-img {
       margin-right: 0;
       margin-bottom: 20px;
+      
   }
   
   .profile-user-info {
